@@ -43,35 +43,31 @@ streamlit
 1. **Clone the repo**
 
    ```bash
+   git clone https://github.com/shashanks33/stock-sentiment-analyzer.git
+   cd stock-sentiment-analyzer
    ```
 
-git clone [https://github.com/shashanks33/stock-sentiment-analyzer.git](https://github.com/shashanks33/stock-sentiment-analyzer.git)
-cd stock-sentiment-analyzer
-
-````
 
 2. **Create & activate a virtual environment**
-```bash
-python3 -m venv venv
-source venv/bin/activate     # macOS/Linux
-./venv/Scripts/Activate.ps1  # Windows PowerShell
-````
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate     # macOS/Linux
+    ./venv/Scripts/Activate.ps1  # Windows PowerShell
+    ```
 
 3. **Install dependencies**
 
    ```bash
+   pip install -r requirements.txt
    ```
 
-pip install -r requirements.txt
-
-````
 
 4. **Configure credentials**
 - Copy `.env.example` to `.env` and fill in your Reddit credentials:
   ```ini
-REDDIT_CLIENT_ID=your_id_here
-REDDIT_CLIENT_SECRET=your_secret_here
-REDDIT_USER_AGENT=desktop:StockSentiment:v1.0 (by /u/your_username)
+    REDDIT_CLIENT_ID=FILL_IN_YOUR_CLIENT_ID
+    REDDIT_CLIENT_SECRET=FILL_IN_YOUR_CLIENT_SECRET
+    REDDIT_USER_AGENT=FILL_IN_YOUR_USER_AGENT
   ```
 
 ---
@@ -87,17 +83,8 @@ python stock_sentiment.py AAPL 50
 
 * Fetches latest 50 posts, prints each compound score, average sentiment, verdict, and last month’s price range.
 
-### 2. Flask Web App
 
-```bash
-export FLASK_APP=src/app.py
-export FLASK_ENV=development    # optional: for auto‑reload + debug logs
-flask run
-```
-
-Open your browser at `http://127.0.0.1:5000/`, enter a ticker, and click **Analyze**.
-
-### 3. Streamlit Dashboard
+### 2. Streamlit Dashboard
 
 ```bash
 streamlit run src/streamlit_app.py
@@ -115,7 +102,6 @@ This launches an interactive UI with real‑time charts, metrics, and expandable
 ├── requirements.txt         # Python deps
 ├── .env                     # your Reddit creds (gitignored)
 ├── src/
-│   ├── app.py               # Flask routes + templates
 │   ├── reddit_sentiment.py  # TextBlob + PRAW wrapper class
 │   ├── stock_data.py        # yfinance wrapper with retry logic
 │   ├── streamlit_app.py     # Streamlit front‑end
